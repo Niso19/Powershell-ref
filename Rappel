@@ -1,0 +1,134 @@
+Get
+Set-Date
+New-Variable -Name MaVariable ou $MaVariable
+Remove-ADUser
+Rename-Computer
+#fait par YAE le 08/11/2018
+# cours intro
+# creation bite à outils de l'information
+
+$Var1="AFORP"
+$Var2="centre de formation"
+[Bool]$Var3="0"
+$PSVersionTable
+$Var4= 42.5476
+$Var4 = [Int32]$Var4
+$Var5 = 1011010 
+$Var6  = Read-Host "Ecrire nom et prenom"
+$Varnom = Read-Host Ecrire Nom
+$VarPrenom = Read-Host Ecrire Prenom
+$Var6 = $Varnom + " " + $VarPrenom
+
+
+[int32]$varNum1 = Read-Host Ecrire Num1
+[int32]$varNum2 = Read-Host Ecrire Num2
+[int32]$varNum3 = $varNum1+$varNum2
+[int32]$varnum3
+
+[int32]$varSandwich = Read-Host Ecrire Prix Sandwich
+[int32]$varBoisson = Read-Host Ecrire Prix Boisson
+[int32]$varNbrAchat= Read-Host Ecrire le nombre de fois achete par mois
+[int32]$varNum3 = ((($varSandwich+$varBoisson)*$varNbrAchat)*12)
+[int32]$varnum3
+
+[int32]$varSandwich = Read-Host Ecrire Prix Sandwich
+[int32]$varBoisson = Read-Host Ecrire Prix Boisson
+[int32]$varNbrAchat= Read-Host Ecrire le nombre de fois achete par mois
+[int32]$varNum3 = ((($varSandwich+$varBoisson)*$varNbrAchat)*12)
+[int32]$varnum3
+[int32]$varCantine = Read-Host Prix repas cantine
+
+if ($varCantine -le ($varSandwich + $varBoisson)) { echo "La cantine est moins chère"} 
+else  {echo "La cantine est plus chère" } 
+
+$varNom = Read-Host Ecrire Prenom
+$varPrenom =  Read-Host Ecrire Nom
+$varPrenom= ("$varPrenom".substring(0,1))
+$varLogin =  $varPrenom + "." + $varNom + "@jesuisunboulet.aforp"
+$varLogin
+
+$varNom = Read-Host Ecrire Prenom
+$varNom.replace('e','a')
+
+$Tableau1 = @(100..464)
+$Tableau1
+
+$Tableau1[7]
+
+$Tableau = $Tableau1[0..463+7]
+
+$MonTab[0] = 'ABC'
+
+$Tableau2 = @("a",2,[bool]$True,"d")
+
+$tab2[$tab2.Length-1]
+
+$JeuVidéos= @{Overwatch = 17 ; Dofus = 14 ; LOL = 14 ; Flyff = 14 ; Wow = 18}
+
+$Couleurs = @{Jaune = '#FFFF00' ; Bleu = '#0000FF' ; Rouge = '#FF0000' }
+
+$Maliste2 = Get-Service | Select-Object Name,Status | Where-Object {$_.Status -match 'Running'}
+$Maliste2 = Get-Service | Select-Object Name,Status | Where-Object {$_.Name -like 'w*'}
+$Maliste2 = Get-Service | Select-Object Name,Status | Where-Object {($_.status -match "running") -and ($_.Name -like "w*" -or $_.Name -like "s*") }
+
+$Maliste2 = Get-Command -and ForEach-Object {$Nombreprocessus =  $Nombreprocessus + 1}
+$Maliste2
+$Nombreprocessus
+
+ ; ForEach-Object {$Nombreprocessus =  $Nombreprocessus + 1}
+$Maliste2
+$Nombreprocessus
+
+$Maliste2 = Get-Command | Select-Object Name | Where-Object {($_.Version -like "3.*") -and ($_.Name -like "wr*")}
+
+
+$Maliste2 = Get-Command | Select-Object Name
+$Maliste2.count
+
+
+DO 
+{$var8 = Read-Host "Ecrire un nombre entre 1 et 10"}
+while ($Var8 -ne "7")
+
+DO
+{$vartableau= Read-Host "Ecrire un nombre entre 1 et 10"
+$Tableau+= "$vartableau"
+}
+while ($vartableau -ne "FIN")
+
+DO{
+[int]$var1= Read-Host "Ecrire un nombre"
+[int]$var2= Read-Host "Ecrire un nombre"
+[int]$varsomme= $var1 + $var2
+$varsomme
+$varfin = Read-Host "Si vous voulez arreter le programme ecrivez STOP"
+}
+while ($varfin -ne "STOP")
+
+
+$MesServices = get-service 
+
+Foreach ($_ in $MesServices ) { echo $_.name }
+
+$Windows= ls c:\Windows
+Foreach ($_ in $Windows) {echo $_.name}
+
+
+$Windows= ls c:\Windows | sort –Unique
+$Windows
+
+function Fsalut ([string]$Prenom) 
+
+{ 
+
+echo "Bonjour $Prenom "
+$MdpCrypte = ConvertTo-SecureString $UserMotDePasse -AsPlainText –force
+
+
+function Boitemail ([string]$Prenom,[string]$Nom,[string]$login)
+{
+$Prenom= ("$Prenom".substring(0,1))
+$login = $Prenom + "." + $Nom + "@jesuisunboulet.fr" 
+echo $login
+}
+
